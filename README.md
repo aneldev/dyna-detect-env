@@ -162,4 +162,4 @@ In this case it will return `true` if the app runs on Desktop or on Chrome.
 
 or _simpler_,
 
-`hasEnv([ESystem.ios, EDeviceCategory.tablet]);` 
+`hasEnv([ESystem.ios]);` 
