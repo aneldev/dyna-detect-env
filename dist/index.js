@@ -109,20 +109,29 @@ var EBrowser;
 })(EBrowser = exports.EBrowser || (exports.EBrowser = {}));
 var EBrowserEngine;
 (function (EBrowserEngine) {
-    EBrowserEngine["blink"] = "Blink";
-    EBrowserEngine["edgeHtml"] = "EdgeHTML";
-    EBrowserEngine["gecko"] = "Gecko";
-    EBrowserEngine["trident"] = "Trident";
-    EBrowserEngine["webKit"] = "WebKit";
+    EBrowserEngine["blink"] = "BLINK";
+    EBrowserEngine["edgeHtml"] = "EDGE_HTML";
+    EBrowserEngine["gecko"] = "GEGKO";
+    EBrowserEngine["trident"] = "TRIDENT";
+    EBrowserEngine["webKit"] = "WEBKIT";
     EBrowserEngine["unknown"] = "UNKNOWN";
 })(EBrowserEngine = exports.EBrowserEngine || (exports.EBrowserEngine = {}));
 var EDeviceCategory;
 (function (EDeviceCategory) {
     EDeviceCategory["desktop"] = "DESKTOP";
     EDeviceCategory["tablet"] = "TABLET";
-    EDeviceCategory["smartphone"] = "SMARTPHONE";
-    EDeviceCategory["unknown"] = "UNKNOWN";
+    EDeviceCategory["phone"] = "PHONE";
 })(EDeviceCategory = exports.EDeviceCategory || (exports.EDeviceCategory = {}));
+var EDeviceType;
+(function (EDeviceType) {
+    EDeviceType["iPod"] = "IPOD";
+    EDeviceType["iPad"] = "IPAD";
+    EDeviceType["iPhone"] = "IPHONE";
+    EDeviceType["androidTablet"] = "ANDROID_TABLET";
+    EDeviceType["androidPhone"] = "ANDROID_PHONE";
+    EDeviceType["desktop"] = "DESKTOP";
+    EDeviceType["unknown"] = "UNKNOWN";
+})(EDeviceType = exports.EDeviceType || (exports.EDeviceType = {}));
 
 
 /***/ }),
@@ -132,9 +141,10 @@ var EDeviceCategory;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var detectEnviroemnt_1 = __webpack_require__(2);
-exports.detectEnvironment = detectEnviroemnt_1.detectEnvironment;
-exports._debug_platform = detectEnviroemnt_1._debug_platform;
+var detectEnv_1 = __webpack_require__(2);
+exports.detectEnv = detectEnv_1.detectEnv;
+exports.hasEnv = detectEnv_1.hasEnv;
+exports._debug_platform = detectEnv_1._debug_platform;
 var enums_1 = __webpack_require__(0);
 exports.ESystem = enums_1.ESystem;
 exports.EBrowser = enums_1.EBrowser;
@@ -161,7 +171,7 @@ var getSystem = function () {
     if (family === "ios")
         return enums_1.ESystem.ios;
     if (family === "android")
-        return enums_1.ESystem.ios;
+        return enums_1.ESystem.android;
     if (["Ubuntu", "Debian", "Fedora", "Red Hat", "SuSE"]
         .map(function (n) { return n.toLowerCase(); })
         .includes(family.toLowerCase()))
@@ -220,10 +230,6 @@ var getDeviceCategory = function () {
         "Kindle", "Kindle Fire", "Nexus", "Nook", "PlayBook", "TouchPad", "Transformer",
     ].includes(platform.product))
         return enums_1.EDeviceCategory.tablet;
-    if ([
-        "BlackBerry", "Galaxy S4", "Lumia", "iPhone",
-    ].includes(platform.product))
-        return enums_1.EDeviceCategory.smartphone;
     var family = platform.os.family.toLowerCase();
     if (family.includes('windows') && !family.includes('windows')) {
         return enums_1.EDeviceCategory.desktop;
@@ -231,17 +237,59 @@ var getDeviceCategory = function () {
     if ([enums_1.ESystem.osx, enums_1.ESystem.linux].includes(getSystem())) {
         return enums_1.EDeviceCategory.desktop;
     }
-    return enums_1.EDeviceCategory.unknown;
+    // for any other cases, return phone, not so accurate but it is cheap
+    return enums_1.EDeviceCategory.phone;
 };
-exports.detectEnvironment = {
+var getDeviceType = function () {
+    var deviceCategory = getDeviceCategory();
+    var system = getSystem();
+    if (deviceCategory === enums_1.EDeviceCategory.desktop)
+        return enums_1.EDeviceType.desktop;
+    if (deviceCategory === enums_1.EDeviceCategory.tablet) {
+        if (system === enums_1.ESystem.android)
+            return enums_1.EDeviceType.androidTablet;
+        if (!platform.product)
+            return enums_1.EDeviceType.unknown;
+        if (platform.product.toLowerCase() === "ipod")
+            return enums_1.EDeviceType.iPod;
+        if (platform.product.toLowerCase() === "ipad")
+            return enums_1.EDeviceType.iPad;
+        return enums_1.EDeviceType.unknown;
+    }
+    if (deviceCategory === enums_1.EDeviceCategory.phone) {
+        if (system === enums_1.ESystem.android)
+            return enums_1.EDeviceType.androidPhone;
+        if (!platform.product)
+            return enums_1.EDeviceType.unknown;
+        if (platform.product.toLowerCase() === "iphone")
+            return enums_1.EDeviceType.iPhone;
+        return enums_1.EDeviceType.unknown;
+    }
+    return enums_1.EDeviceType.unknown;
+};
+exports.detectEnv = {
     system: getSystem(),
     browser: getBrowser(),
     browserEngine: getBrowserEngine(),
     deviceCategory: getDeviceCategory(),
+    deviceType: getDeviceType(),
+};
+exports.hasEnv = function (properties, all) {
+    if (all === void 0) { all = true; }
+    var mathcing = 0;
+    var _properties = Array.isArray(properties) ? properties : [properties];
+    Object.keys(exports.detectEnv)
+        .map(function (key) { return exports.detectEnv[key]; })
+        .forEach(function (detectedProperty) {
+        if (_properties.includes(detectedProperty))
+            mathcing++;
+    });
+    if (all)
+        return mathcing === _properties.length;
+    else
+        return mathcing > 0;
 };
 exports._debug_platform = platform;
-// export const hasEnvironmentAll
-// export const hasEnvironmentSome
 
 
 /***/ }),

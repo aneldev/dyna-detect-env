@@ -1,3 +1,3 @@
-export { detectEnvironment, _debug_platform, } from "./detectEnviroemnt";
+export { detectEnv, hasEnv, _debug_platform, } from "./detectEnv";
 export { ESystem, EBrowser, EBrowserEngine, EDeviceCategory, } from "./enums";
-export { IDetectedEnvironment, } from "./interfaces";
+export { IDetectedEnv, } from "./interfaces";

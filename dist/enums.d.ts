@@ -1,3 +1,4 @@
+export declare type EEnvProperty = ESystem | EBrowser | EBrowserEngine | EDeviceCategory | EDeviceType;
 export declare enum ESystem {
     osx = "OSX",
     ios = "IOS",
@@ -21,16 +22,24 @@ export declare enum EBrowser {
     unknown = "UNKNOWN"
 }
 export declare enum EBrowserEngine {
-    blink = "Blink",
-    edgeHtml = "EdgeHTML",
-    gecko = "Gecko",
-    trident = "Trident",
-    webKit = "WebKit",
+    blink = "BLINK",
+    edgeHtml = "EDGE_HTML",
+    gecko = "GEGKO",
+    trident = "TRIDENT",
+    webKit = "WEBKIT",
     unknown = "UNKNOWN"
 }
 export declare enum EDeviceCategory {
     desktop = "DESKTOP",
     tablet = "TABLET",
-    smartphone = "SMARTPHONE",
+    phone = "PHONE"
+}
+export declare enum EDeviceType {
+    iPod = "IPOD",
+    iPad = "IPAD",
+    iPhone = "IPHONE",
+    androidTablet = "ANDROID_TABLET",
+    androidPhone = "ANDROID_PHONE",
+    desktop = "DESKTOP",
     unknown = "UNKNOWN"
 }
