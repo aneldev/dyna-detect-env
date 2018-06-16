@@ -127,6 +127,10 @@ export const hasEnv = (properties: EEnvProperty | EEnvProperty[], all: boolean =
 	const _properties: EEnvProperty[] = Array.isArray(properties) ? properties : [properties];
 	Object.keys(detectEnv)
 		.map((key: string) => detectEnv[key])
+		.reduce((acc: EEnvProperty[], prop: EEnvProperty) => {
+			if (!acc.includes(prop)) acc.push(prop);
+			return acc;
+		}, [])
 		.forEach((detectedProperty: EEnvProperty) => {
 			if (_properties.includes(detectedProperty)) mathcing++;
 		});

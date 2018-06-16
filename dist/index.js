@@ -85,52 +85,52 @@ return /******/ (function(modules) { // webpackBootstrap
 Object.defineProperty(exports, "__esModule", { value: true });
 var ESystem;
 (function (ESystem) {
-    ESystem["osx"] = "OSX";
-    ESystem["ios"] = "IOS";
-    ESystem["android"] = "ANDROID";
-    ESystem["windows"] = "WINDOWS";
-    ESystem["linux"] = "LINUX";
-    ESystem["unknown"] = "UNKNOWN";
+    ESystem["osx"] = "system_OSX";
+    ESystem["ios"] = "system_IOS";
+    ESystem["android"] = "system_ANDROID";
+    ESystem["windows"] = "system_WINDOWS";
+    ESystem["linux"] = "system_LINUX";
+    ESystem["unknown"] = "system_UNKNOWN";
 })(ESystem = exports.ESystem || (exports.ESystem = {}));
 var EBrowser;
 (function (EBrowser) {
-    EBrowser["ie"] = "IE";
-    EBrowser["edge"] = "EDGE";
-    EBrowser["firefox"] = "FIREFOX";
-    EBrowser["chrome"] = "CHROME";
-    EBrowser["opera"] = "OPERA";
-    EBrowser["operaMini"] = "OPERA_MINI";
-    EBrowser["seaMonkey"] = "SEA_MONKEY";
-    EBrowser["silk"] = "SILK";
-    EBrowser["safari"] = "SAFARI";
-    EBrowser["electron"] = "ELECTRON";
-    EBrowser["phantomJs"] = "PHANTOM_JS";
-    EBrowser["unknown"] = "UNKNOWN";
+    EBrowser["ie"] = "browser_IE";
+    EBrowser["edge"] = "browser_EDGE";
+    EBrowser["firefox"] = "browser_FIREFOX";
+    EBrowser["chrome"] = "browser_CHROME";
+    EBrowser["opera"] = "browser_OPERA";
+    EBrowser["operaMini"] = "browser_OPERA_MINI";
+    EBrowser["seaMonkey"] = "browser_SEA_MONKEY";
+    EBrowser["silk"] = "browser_SILK";
+    EBrowser["safari"] = "browser_SAFARI";
+    EBrowser["electron"] = "browser_ELECTRON";
+    EBrowser["phantomJs"] = "browser_PHANTOM_JS";
+    EBrowser["unknown"] = "browser_UNKNOWN";
 })(EBrowser = exports.EBrowser || (exports.EBrowser = {}));
 var EBrowserEngine;
 (function (EBrowserEngine) {
-    EBrowserEngine["blink"] = "BLINK";
-    EBrowserEngine["edgeHtml"] = "EDGE_HTML";
-    EBrowserEngine["gecko"] = "GEGKO";
-    EBrowserEngine["trident"] = "TRIDENT";
-    EBrowserEngine["webKit"] = "WEBKIT";
-    EBrowserEngine["unknown"] = "UNKNOWN";
+    EBrowserEngine["blink"] = "browser_BLINK";
+    EBrowserEngine["edgeHtml"] = "browser_EDGE_HTML";
+    EBrowserEngine["gecko"] = "browser_GECKO";
+    EBrowserEngine["trident"] = "browser_TRIDENT";
+    EBrowserEngine["webKit"] = "browser_WEBKIT";
+    EBrowserEngine["unknown"] = "browser_UNKNOWN";
 })(EBrowserEngine = exports.EBrowserEngine || (exports.EBrowserEngine = {}));
 var EDeviceCategory;
 (function (EDeviceCategory) {
-    EDeviceCategory["desktop"] = "DESKTOP";
-    EDeviceCategory["tablet"] = "TABLET";
-    EDeviceCategory["phone"] = "PHONE";
+    EDeviceCategory["desktop"] = "browser_DESKTOP";
+    EDeviceCategory["tablet"] = "browser_TABLET";
+    EDeviceCategory["phone"] = "browser_PHONE";
 })(EDeviceCategory = exports.EDeviceCategory || (exports.EDeviceCategory = {}));
 var EDeviceType;
 (function (EDeviceType) {
-    EDeviceType["iPod"] = "IPOD";
-    EDeviceType["iPad"] = "IPAD";
-    EDeviceType["iPhone"] = "IPHONE";
-    EDeviceType["androidTablet"] = "ANDROID_TABLET";
-    EDeviceType["androidPhone"] = "ANDROID_PHONE";
-    EDeviceType["desktop"] = "DESKTOP";
-    EDeviceType["unknown"] = "UNKNOWN";
+    EDeviceType["iPod"] = "browser_IPOD";
+    EDeviceType["iPad"] = "browser_IPAD";
+    EDeviceType["iPhone"] = "browser_IPHONE";
+    EDeviceType["androidTablet"] = "browser_ANDROID_TABLET";
+    EDeviceType["androidPhone"] = "browser_ANDROID_PHONE";
+    EDeviceType["desktop"] = "browser_DESKTOP";
+    EDeviceType["unknown"] = "browser_UNKNOWN";
 })(EDeviceType = exports.EDeviceType || (exports.EDeviceType = {}));
 
 
@@ -280,6 +280,11 @@ exports.hasEnv = function (properties, all) {
     var _properties = Array.isArray(properties) ? properties : [properties];
     Object.keys(exports.detectEnv)
         .map(function (key) { return exports.detectEnv[key]; })
+        .reduce(function (acc, prop) {
+        if (!acc.includes(prop))
+            acc.push(prop);
+        return acc;
+    }, [])
         .forEach(function (detectedProperty) {
         if (_properties.includes(detectedProperty))
             mathcing++;
