@@ -109,28 +109,28 @@ var EBrowser;
 })(EBrowser = exports.EBrowser || (exports.EBrowser = {}));
 var EBrowserEngine;
 (function (EBrowserEngine) {
-    EBrowserEngine["blink"] = "browser_BLINK";
-    EBrowserEngine["edgeHtml"] = "browser_EDGE_HTML";
-    EBrowserEngine["gecko"] = "browser_GECKO";
-    EBrowserEngine["trident"] = "browser_TRIDENT";
-    EBrowserEngine["webKit"] = "browser_WEBKIT";
-    EBrowserEngine["unknown"] = "browser_UNKNOWN";
+    EBrowserEngine["blink"] = "browser_engine_BLINK";
+    EBrowserEngine["edgeHtml"] = "browser_engine_EDGE_HTML";
+    EBrowserEngine["gecko"] = "browser_engine_GECKO";
+    EBrowserEngine["trident"] = "browser_engine_TRIDENT";
+    EBrowserEngine["webKit"] = "browser_engine_WEBKIT";
+    EBrowserEngine["unknown"] = "browser_engine_UNKNOWN";
 })(EBrowserEngine = exports.EBrowserEngine || (exports.EBrowserEngine = {}));
 var EDeviceCategory;
 (function (EDeviceCategory) {
-    EDeviceCategory["desktop"] = "browser_DESKTOP";
-    EDeviceCategory["tablet"] = "browser_TABLET";
-    EDeviceCategory["phone"] = "browser_PHONE";
+    EDeviceCategory["desktop"] = "device_category_DESKTOP";
+    EDeviceCategory["tablet"] = "device_category_TABLET";
+    EDeviceCategory["phone"] = "device_category_PHONE";
 })(EDeviceCategory = exports.EDeviceCategory || (exports.EDeviceCategory = {}));
 var EDeviceType;
 (function (EDeviceType) {
-    EDeviceType["iPod"] = "browser_IPOD";
-    EDeviceType["iPad"] = "browser_IPAD";
-    EDeviceType["iPhone"] = "browser_IPHONE";
-    EDeviceType["androidTablet"] = "browser_ANDROID_TABLET";
-    EDeviceType["androidPhone"] = "browser_ANDROID_PHONE";
-    EDeviceType["desktop"] = "browser_DESKTOP";
-    EDeviceType["unknown"] = "browser_UNKNOWN";
+    EDeviceType["iPod"] = "device_type_IPOD";
+    EDeviceType["iPad"] = "device_type_IPAD";
+    EDeviceType["iPhone"] = "device_type_IPHONE";
+    EDeviceType["androidTablet"] = "device_type_ANDROID_TABLET";
+    EDeviceType["androidPhone"] = "device_type_ANDROID_PHONE";
+    EDeviceType["desktop"] = "device_type_DESKTOP";
+    EDeviceType["unknown"] = "device_type_UNKNOWN";
 })(EDeviceType = exports.EDeviceType || (exports.EDeviceType = {}));
 
 
