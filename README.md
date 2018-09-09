@@ -59,53 +59,53 @@ and these are the enums:
 > JavaScript developers you can use the `enums` too, they are simple objects with properties and values.
 
 ```
-enum EDeviceType {
-	iPod = "IPOD",
-	iPad = "IPAD",
-	iPhone = "IPHONE",
-	androidTablet = "ANDROID_TABLET",
-	androidPhone = "ANDROID_PHONE",
-	desktop = "DESKTOP",
-	unknown = "UNKNOWN",
-}
-
 enum ESystem {
-	osx = "OSX",
-	ios = "IOS",
-	android = "ANDROID",
-	windows = "WINDOWS",
-	linux = "LINUX",
-	unknown = "UNKNOWN",
+	osx = "system_OSX",
+	ios = "system_IOS",
+	android = "system_ANDROID",
+	windows = "system_WINDOWS",
+	linux = "system_LINUX",
+	unknown = "system_UNKNOWN",
 }
 
 enum EBrowser {
-	ie = "IE",
-	edge = "EDGE",
-	firefox = "FIREFOX",
-	chrome = "CHROME",
-	opera = "OPERA",
-	operaMini = "OPERA_MINI", // its completely different browser!
-	seaMonkey = "SEA_MONKEY",
-	silk = "SILK",
-	safari = "SAFARI",
-	electron = "ELECTRON",
-	phantomJs = "PHANTOM_JS",
-	unknown = "UNKNOWN",
+	ie = "browser_IE",
+	edge = "browser_EDGE",
+	firefox = "browser_FIREFOX",
+	chrome = "browser_CHROME",
+	opera = "browser_OPERA",
+	operaMini = "browser_OPERA_MINI", // its completely different browser!
+	seaMonkey = "browser_SEA_MONKEY",
+	silk = "browser_SILK",
+	safari = "browser_SAFARI",
+	electron = "browser_ELECTRON",
+	phantomJs = "browser_PHANTOM_JS",
+	unknown = "browser_UNKNOWN",
 }
 
 enum EBrowserEngine {
-	blink = "BLINK",
-	edgeHtml = "EDGE_HTML",
-	gecko = "GEGKO",
-	trident = "TRIDENT",
-	webKit = "WEBKIT",
-	unknown = "UNKNOWN",
+	blink = "browser_engine_BLINK",
+	edgeHtml = "browser_engine_EDGE_HTML",
+	gecko = "browser_engine_GECKO",
+	trident = "browser_engine_TRIDENT",
+	webKit = "browser_engine_WEBKIT",
+	unknown = "browser_engine_UNKNOWN",
+}
+
+enum EDeviceCategory {
+	desktop = "device_category_DESKTOP",
+	tablet = "device_category_TABLET",
+	phone = "device_category_PHONE",
 }
 
 enum EDeviceType {
-	desktop = "DESKTOP",
-	tablet = "TABLET",
-	phone = "PHONE",   // everything not detected as desktop or tablet
+	iPod = "device_type_IPOD",
+	iPad = "device_type_IPAD",
+	iPhone = "device_type_IPHONE",
+	androidTablet = "device_type_ANDROID_TABLET",
+	androidPhone = "device_type_ANDROID_PHONE",
+	desktop = "device_type_DESKTOP",
+	unknown = "device_type_UNKNOWN",
 }
 ```
 

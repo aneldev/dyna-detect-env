@@ -25,26 +25,26 @@ export enum EBrowser {
 }
 
 export enum EBrowserEngine {
-	blink = "browser_BLINK",
-	edgeHtml = "browser_EDGE_HTML",
-	gecko = "browser_GECKO",
-	trident = "browser_TRIDENT",
-	webKit = "browser_WEBKIT",
-	unknown = "browser_UNKNOWN",
+	blink = "browser_engine_BLINK",
+	edgeHtml = "browser_engine_EDGE_HTML",
+	gecko = "browser_engine_GECKO",
+	trident = "browser_engine_TRIDENT",
+	webKit = "browser_engine_WEBKIT",
+	unknown = "browser_engine_UNKNOWN",
 }
 
 export enum EDeviceCategory {
-	desktop = "browser_DESKTOP",
-	tablet = "browser_TABLET",
-	phone = "browser_PHONE",
+	desktop = "device_category_DESKTOP",
+	tablet = "device_category_TABLET",
+	phone = "device_category_PHONE",
 }
 
 export enum EDeviceType {
-	iPod = "browser_IPOD",
-	iPad = "browser_IPAD",
-	iPhone = "browser_IPHONE",
-	androidTablet = "browser_ANDROID_TABLET",
-	androidPhone = "browser_ANDROID_PHONE",
-	desktop = "browser_DESKTOP",
-	unknown = "browser_UNKNOWN",
+	iPod = "device_type_IPOD",
+	iPad = "device_type_IPAD",
+	iPhone = "device_type_IPHONE",
+	androidTablet = "device_type_ANDROID_TABLET",
+	androidPhone = "device_type_ANDROID_PHONE",
+	desktop = "device_type_DESKTOP",
+	unknown = "device_type_UNKNOWN",
 }
