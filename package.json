@@ -1,6 +1,6 @@
 {
   "name": "dyna-detect-env",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "Detect environment properties, running devices, browsers etc..",
   "repository": {
     "type": "git",
