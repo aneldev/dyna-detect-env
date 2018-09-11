@@ -231,7 +231,7 @@ var getDeviceCategory = function () {
     ].includes(platform.product))
         return enums_1.EDeviceCategory.tablet;
     var family = platform.os.family.toLowerCase();
-    if (family.includes('windows') && !family.includes('windows')) {
+    if (family.includes('windows')) {
         return enums_1.EDeviceCategory.desktop;
     }
     if ([enums_1.ESystem.osx, enums_1.ESystem.linux].includes(getSystem())) {

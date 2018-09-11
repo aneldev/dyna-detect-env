@@ -79,7 +79,7 @@ const getDeviceCategory = (): EDeviceCategory => {
 	].includes(platform.product)) return EDeviceCategory.tablet;
 
 	const family: string = platform.os.family.toLowerCase();
-	if (family.includes('windows') && !family.includes('windows')) {
+	if (family.includes('windows')) {
 		return EDeviceCategory.desktop;
 	}
 	if ([ESystem.osx, ESystem.linux].includes(getSystem())) {
