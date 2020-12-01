@@ -1,16 +1,16 @@
 export {
-	detectEnv,
-	hasEnv,
-	_debug_platform,
+  detectEnv,
+  hasEnv,
+  _debug_platform,
 } from "./detectEnv";
 
 export {
-	ESystem,
-	EBrowser,
-	EBrowserEngine,
-	EDeviceCategory,
+  ESystem,
+  EBrowser,
+  EBrowserEngine,
+  EDeviceCategory,
 } from "./enums";
 
 export {
-	IDetectedEnv,
+  IDetectedEnv,
 } from "./interfaces";
